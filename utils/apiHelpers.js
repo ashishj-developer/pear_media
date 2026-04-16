@@ -1,7 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
+const apiKey = import.meta.env.VITE_MY_API_KEY;
+
+
 
 const ai = new GoogleGenAI({
-  apiKey: "AQ.Ab8RN6JEe6djXHhjBbia0wZ0QjeMIykATbjWndfPpwuEzd6nUA",
+  apiKey: apiKey,
 });
 
 // Function to handle the "Enhance" step
@@ -13,9 +16,11 @@ export const getEnhancedPrompt = async (input) => {
       contents: `Enhance this image prompt for a professional photographer in 100 words. "${input}"`,
     });
     const data = response.text;
+   
     return data;
   } catch (error) {
     console.error("Enhancement failed:", error);
+   
     return input; // Fallback to original
   }
 };
@@ -25,7 +30,7 @@ export const getEnhancedPrompt = async (input) => {
 export const generateImageFromPrompt = async (prompt) => {
   try {
     const encodedPrompt = encodeURIComponent(prompt);
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
+    const imageUrl = `https://gen.pollinations.ai/image/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
     return imageUrl; // Just return URL, don't fetch!
   } catch (error) {
     console.error("Image generation failed:", error);

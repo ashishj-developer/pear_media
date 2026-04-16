@@ -32,15 +32,15 @@ const TextWorkFlow = () => {
     setIsLoading(false);
   };
 
-  const generateImage = async () => {
-    // Logic to generate image from enhanced prompt
-    setIsLoading(true);
-    setStageStatus(stage.generate);
-    const imageUrl = await generateImageFromPrompt(EnhancedPrompt);
-     setImageUrl(imageUrl);
-    console.log("Generated Image URL:", imageUrl);
-    console.log("Setting imageUrl state:", imageUrl);
-    setIsLoading(false);
+  const downloadImage = () => {
+    if (imageUrl) {
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = 'generated-image.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
 
   const renderEnhancePrompt = () => {
@@ -155,7 +155,7 @@ const TextWorkFlow = () => {
             Create Another
           </button>
           <button
-            onClick={() => generateImage()}
+            onClick={() => downloadImage()}
             className="bg-[#7a58e8] text-white py-2 px-4 rounded-lg self-end mt-4 hover:bg-[#6a47c9] transition-colors duration-100 ease-in-out flex items-center"
           >
             <FaWandMagicSparkles size={18} className="mr-2" />

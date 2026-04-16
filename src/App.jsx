@@ -16,7 +16,6 @@ function App() {
   ];
 
   const [active, setActive] = useState(workflow[0].name);
-
   return (
     <div className="bg-[#eaeafa] min-h-screen h-full w-screen flex flex-col items-center p-4">
       <div className="flex items-center h-15 my-4">
