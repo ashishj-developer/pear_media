@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-  apiKey: "AQ.Ab8RN6LKhwnaHTSaNqxugxbuNmsLIrRnH0sUcdmAFr9GcuQ4dg",
+  apiKey: "AQ.Ab8RN6JEe6djXHhjBbia0wZ0QjeMIykATbjWndfPpwuEzd6nUA",
 });
 
 // Function to handle the "Enhance" step
