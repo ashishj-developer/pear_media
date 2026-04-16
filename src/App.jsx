@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CiText } from "react-icons/ci";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import TextWorkFlow from "./components/TextWorkFlow";
+import ImageWorkflow from "./components/ImageWorkflow";
 
 function App() {
   const workflow = [
@@ -41,7 +42,7 @@ function App() {
           </div>
         ))}
       </div>
-      <TextWorkFlow />
+      {active === workflow[0].name ? <TextWorkFlow /> : <ImageWorkflow />}
       {/* footer */}
       <p className="text-slate-500 text-sm mt-6">
         Pear Media • AI-Powered Creative Tools
